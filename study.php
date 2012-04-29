@@ -23,17 +23,39 @@ $row = $result->fetch_array()
 	<p>Experimental Design: <?php echo $row['design'] ?></p>
 	<p>Timescale: <?php echo $row['type'] ?></p>
 
+	<section id="variables">
+
+	</section>
+
 	<section id="ethics">
 
 		<h2>Ethics</h2>
+		<h3>Informed Consent</h3>
+		<?php echo $row['informed_consent'] ?>
+
+		<h3>Long-term Harm</h3>
+		<?php echo $row['harm'] ?>
+
+		<h3>Right to Withdraw</h3>
+		<?php echo $row['right_to_withdraw'] ?>
 
 	</section> 
 
 	<section id="eval">
 		
 		<h2>Evaluation</h2>
+		
 		<h3>Validity</h3>
 		<?php echo $row['validity'] ?>
+
+		<h3>Ecological Validity</h3>
+		<?php echo $row['eco_validity'] ?>
+
+		<h3>Reliability</h3>
+		<?php echo $row['reliability'] ?>
+
+		<h3>Perspective</h3>
+		<?php echo $row['perspective'] ?>
 
 	</section>
 
