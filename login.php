@@ -2,6 +2,8 @@
   
   session_start();
 
+  require 'includes/dbcon.php';
+
   if (isset($_GET['logout']) && isset($_SESSION['CORE_LOGGED_IN'])) {
   	session_destroy();
   	$_GET['e'] = 3;
@@ -9,6 +11,7 @@
 
   if (isset($_POST['submit'])) {
   	if (!empty($_POST['username']) && !empty($_POST['password']) ) {
+  		
   		$username = mysql_real_escape_string($_POST['username']);
   		$password = md5(mysql_real_escape_string($_POST['password']));
   		$result = $db->query("SELECT * FROM users WHERE username=$username AND password=$password");
@@ -44,7 +47,7 @@
 
 	<div id="main-wrap">
 
-		<h1 class="site-title"><a href="index.php">Core Study Summaries</a></h1>
+		<h1><a class="site-title" href="index.php">Core Study Summaries</a></h1>
 
 		<h2>Log In</h2>
 
@@ -85,7 +88,7 @@
 				<input type="checkbox" name="remember" id="remember">
 			</div>
 
-			<input type="submit" name="submit" value="Login">
+			<input type="submit" id="submit" name="submit" value="Login">
 		
 		</form>
   

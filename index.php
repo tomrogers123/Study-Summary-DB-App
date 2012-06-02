@@ -1,10 +1,10 @@
 <?php
 
-require_once 'includes/dbcon.php';
+require "includes/dbcon.php";
 $result = $db->query("SELECT id,study_name FROM studies");
 
-if($result->num_rows() != 0)
-	while($row = $result->fetch_array()) {
+if($result->num_rows != 0) {
+	while($row = $result->fetch_array(MYSQLI_ASSOC)) {
 		echo '<a href="study.php?id=' . $row['id'] . '">' . $row['study_name'] . '</a>'; 
 	}
 } else {

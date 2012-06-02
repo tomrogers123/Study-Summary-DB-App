@@ -3,7 +3,7 @@
 require_once 'includes/dbcon.php';
 $study = $_GET['id'];
 if (!is_numeric($study)) die("<h1>Something is wrong.</h1>");
-$result = $db->query("SELECT * FROM studies WHERE (id =" . $study . "");
+$result = $db->query("SELECT * FROM studies WHERE (id =" . $study . ");");
 
 $row = $result->fetch_array()
 
@@ -16,48 +16,59 @@ $row = $result->fetch_array()
 </head>
 <body>
 
-	<h1><?php echo $row['study_title'] ?></h1>
+	<div id="main-wrapper">
 
-	<p>Study Authors: <?php echo $row['study_authors'] ?></p>
-	<p>Method: <?php echo $row['method'] ?></p>
-	<p>Experimental Design: <?php echo $row['design'] ?></p>
-	<p>Timescale: <?php echo $row['type'] ?></p>
+		<h1><?php echo $row['study_title'] ?></h1>
 
-	<section id="variables">
+		<p>Study Authors: <?php echo $row['study_authors'] ?></p>
+		<p>Method: <?php echo $row['method'] ?></p>
+		<p>Experimental Design: <?php echo $row['design'] ?></p>
+		<p>Timescale: <?php echo $row['type'] ?></p>
 
-	</section>
+		<section id="primary">
 
-	<section id="ethics">
+			<h3>Procedure</h3>
+			<?php echo $row['procedure'] ?>
 
-		<h2>Ethics</h2>
-		<h3>Informed Consent</h3>
-		<?php echo $row['informed_consent'] ?>
-
-		<h3>Long-term Harm</h3>
-		<?php echo $row['harm'] ?>
-
-		<h3>Right to Withdraw</h3>
-		<?php echo $row['right_to_withdraw'] ?>
-
-	</section> 
-
-	<section id="eval">
+			<h3>Findings</h3>
+			<?php echo $row['findings'] ?>
 		
-		<h2>Evaluation</h2>
+		</section>
+
+		<section id="ethics">
+
+			<h2>Ethics</h2>
+			
+			<h3>Informed Consent</h3>
+			<?php echo $row['informed_consent'] ?>
+
+			<h3>Long-term Harm</h3>
+			<?php echo $row['harm'] ?>
+
+			<h3>Right to Withdraw</h3>
+			<?php echo $row['right_to_withdraw'] ?>
+
+		</section> 
+
+		<section id="eval">
+			
+			<h2>Evaluation</h2>
+			
+			<h3>Validity</h3>
+			<?php echo $row['validity'] ?>
+
+			<h3>Ecological Validity</h3>
+			<?php echo $row['eco_validity'] ?>
+
+			<h3>Reliability</h3>
+			<?php echo $row['reliability'] ?>
+
+			<h3>Perspective</h3>
+			<?php echo $row['perspective'] ?>
+
+		</section>
 		
-		<h3>Validity</h3>
-		<?php echo $row['validity'] ?>
-
-		<h3>Ecological Validity</h3>
-		<?php echo $row['eco_validity'] ?>
-
-		<h3>Reliability</h3>
-		<?php echo $row['reliability'] ?>
-
-		<h3>Perspective</h3>
-		<?php echo $row['perspective'] ?>
-
-	</section>
+	</div>
 
 </body>
 </html>

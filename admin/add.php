@@ -33,9 +33,7 @@
     	'perspective' => mysql_real_escape_string($_POST['perspective'])
   	);
     
-    $result = $db->query("INSERT INTO studies(study_title,study_authors,study_method,study_type,perspective) 
-    											
-    											VALUES($submittedData['study_title],$submittedData['study_authors']),$submittedData['study_method']),$submittedData['study_type'],$submittedData['perspective'],)");
+    $result = $db->query("INSERT INTO studies(study_title,study_authors,study_method,study_type,perspective) VALUES($submittedData['study_title'],$submittedData['study_authors']),$submittedData['study_method']),$submittedData['study_type'],$submittedData['perspective'])");
 
   }
 
@@ -54,9 +52,11 @@
 
 	<div id="main-wrap">
 
+		<a class="site-title" href="../index.php">Core Study Summaries</a>
+
 		<h1>Add Study</h1>
 
-		<form method="post" action="add.php">
+		<form method="post" action="add.php" id="study-creation-form">
 
 			<fieldset>
 
@@ -119,7 +119,6 @@
 					<textarea rows="30" cols="40" name="theories" id="theoriesß"></textarea>
 				</div>
 
-
 			</fieldset>
 
 			<fieldset>
@@ -128,6 +127,75 @@
 					<label for="procedure">Procedure:</label>
 					<textarea rows="45" cols="60" name="procedure" id="procedure"></textarea>
 				</div>
+
+				<table id="variables">
+					<thead>
+						<th>Description</th>
+						<th>Type</th>
+					</thead>
+					<tbody>
+						<tr>
+							<td>
+								<div>
+				  				<label for="type">Type:</label>
+				  				<select>
+				  					<option>Independent</option>
+				  					<option>Dependent</option>
+				  					<option>Confounding</option>
+				  				</select>
+			  				</div>
+			  			</td>
+							<td>
+								<div>
+				  				<label for="type" class="screen-reader-text">Type:</label>
+				  				<input type="textß" name="type" />
+			  				</div>
+			  			</td>
+						</tr>
+						<tr>
+							<td>
+								<div>
+				  				<label for="type">Type:</label>
+				  				<input type="radio" name="type" value="snapshot">Snapshot</input>
+			  				</div>
+			  			</td>
+							<td>
+								<div>
+				  				<label for="type">Type:</label>
+				  				<input type="radio" name="type" value="snapshot">Snapshot</input>
+			  				</div>
+			  			</td>
+						</tr>
+						<tr>
+							<td>
+								<div>
+				  				<label for="type">Type:</label>
+				  				<input type="radio" name="type" value="snapshot">Snapshot</input>
+			  				</div>
+			  			</td>
+							<td>
+								<div>
+				  				<label for="type">Type:</label>
+				  				<input type="radio" name="type" value="snapshot">Snapshot</input>
+			  				</div>
+			  			</td>
+						</tr>
+						<tr>
+							<td>
+								<div>
+				  				<label for="type">Type:</label>
+				  				<input type="radio" name="type" value="snapshot">Snapshot</input>
+			  				</div>
+			  			</td>
+							<td>
+								<div>
+				  				<label for="type">Type:</label>
+				  				<input type="radio" name="type" value="snapshot">Snapshot</input>
+			  				</div>
+			  			</td>
+						</tr>
+					</tbody>
+				</table>
 
 				<div>
 					<label for="findings">Findings:</label>
@@ -234,6 +302,10 @@
 		</form>
 
 	</div>
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script src="../js/jQuery.stageForm.js"></script>
+	<script src="../js/implementation.js"></script>
 
 </body>
 </html>
